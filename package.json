@@ -1,0 +1,29 @@
+{
+  "name": "mirror-dev",
+  "version": "1.0.0",
+  "description": "Generate beautiful architecture maps for any GitHub repository instantly.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node src/cli.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spleziere-prog/mirror-dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/spleziere-prog/mirror-dev/issues"
+  },
+  "homepage": "https://github.com/spleziere-prog/mirror-dev#readme",
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "mermaid": "^11.15.0"
+  }
+}

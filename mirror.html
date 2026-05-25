@@ -1,0 +1,107 @@
+
+  <html>
+    <head>
+      <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'dark',
+          flowchart: {
+            curve: 'basis'
+          }
+        });
+      </script>
+
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          background:
+            radial-gradient(circle at top left, #1e293b, #020617);
+          color: white;
+          font-family: Inter, sans-serif;
+          min-height: 100vh;
+          padding: 40px;
+          overflow-x: auto;
+        }
+
+        h1 {
+          font-size: 64px;
+          margin-bottom: 40px;
+          font-weight: 800;
+          letter-spacing: -2px;
+
+          background: linear-gradient(
+            90deg,
+            #60a5fa,
+            #a78bfa
+          );
+
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 24px;
+          padding: 40px;
+          backdrop-filter: blur(20px);
+          overflow: auto;
+        }
+
+        .mermaid {
+          display: flex;
+          justify-content: center;
+          min-width: 1200px;
+        }
+
+        ::-webkit-scrollbar {
+          height: 10px;
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: rgba(255,255,255,0.2);
+          border-radius: 999px;
+        }
+      </style>
+    </head>
+
+    <body>
+      <h1>MIRROR.dev</h1>
+
+      <div class="container">
+        <div class="mermaid">
+          graph LR
+Node0[__gitignore]
+Node1[_LICENSE]
+Node2[_README_md]
+Node3[_mirror_html]
+Node3 --> Import30
+Node4[_package_lock_json]
+Node5[_package_json]
+Node6[_src_cli_ts]
+Node6 --> Import60
+Node6 --> Import61
+Node6 --> Import62
+Node6 --> Import63
+Node7[_src_graph_ts]
+Node7 --> Import70
+Node8[_src_html_ts]
+Node8 --> Import80
+Node9[_src_scan_ts]
+Node9 --> Import90
+Node9 --> Import91
+Node10[_tsconfig_json]
+
+        </div>
+      </div>
+    </body>
+  </html>
+  
