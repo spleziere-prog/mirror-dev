@@ -1,32 +1,88 @@
-import fs from "fs"
-
 export function createGraph(files: string[]) {
-  let graph = "graph LR\n"
 
-  files.forEach((file, i) => {
-    const clean = cleanName(file)
+  let graph = `
+graph LR
+`
 
-    graph += `Node${i}[${clean}]\n`
+  const relations = new Set<string>()
+  const nodes = new Set<string>()
 
-    try {
-      const content = fs.readFileSync(file, "utf-8")
+  files.forEach((file) => {
 
-      const imports = content.match(/from ["'](.+)["']/g)
+    const normalized =
+      file.replace(/\\/g, "/")
 
-      if (imports) {
-        imports.forEach((imp, j) => {
-          graph += `Node${i} --> Import${i}${j}\n`
-        })
+    // Start graph from src
+    const srcIndex =
+      normalized.indexOf("/src/")
+
+    if (srcIndex === -1) {
+      return
+    }
+
+    const relative =
+      normalized.slice(srcIndex + 1)
+
+    const parts =
+      relative.split("/")
+
+    // remove filename
+    parts.pop()
+
+    for (
+      let i = 0;
+      i < parts.length - 1;
+      i++
+    ) {
+
+      const parent =
+        sanitize(parts[i])
+
+      const child =
+        sanitize(parts[i + 1])
+
+      if (
+        parent &&
+        child &&
+        parent !== child
+      ) {
+
+        nodes.add(parent)
+        nodes.add(child)
+
+        relations.add(
+          `${parent} --> ${child}`
+        )
+
       }
-    } catch {}
+
+    }
+
+  })
+
+  // create nodes
+  nodes.forEach((node) => {
+
+    graph += `
+${node}["📁 ${node}"]
+`
+
+  })
+
+  // create relations
+  relations.forEach((relation) => {
+
+    graph += `
+${relation}
+`
+
   })
 
   return graph
 }
 
-function cleanName(name: string) {
+function sanitize(name: string) {
+
   return name
-    .replace(process.cwd(), "")
-    .replace(/[/.]/g, "_")
-    .replace(/-/g, "_")
+    .replace(/[^a-zA-Z0-9]/g, "_")
 }

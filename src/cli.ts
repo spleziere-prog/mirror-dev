@@ -1,16 +1,36 @@
 #!/usr/bin/env node
 
 import fs from "fs"
+import path from "path"
+
 import { scan } from "./scan"
 import { createGraph } from "./graph"
 import { generateHTML } from "./html"
 
-const files = scan(process.cwd())
+const target = process.argv[2]
+  ? path.resolve(process.argv[2])
+  : process.cwd()
 
-const graph = createGraph(files)
+console.log("TARGET:")
+console.log(target)
 
-const html = generateHTML(graph)
+const files = scan(target)
 
-fs.writeFileSync("mirror.html", html)
+console.log("FILES:")
+console.log(files)
+
+const graph =
+  createGraph(files)
+
+console.log("GRAPH:")
+console.log(graph)
+
+const html =
+  generateHTML(graph)
+
+fs.writeFileSync(
+  "mirror.html",
+  html
+)
 
 console.log("MIRROR generated.")

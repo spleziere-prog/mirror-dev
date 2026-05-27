@@ -1,19 +1,50 @@
 
   <html>
+
     <head>
+
+      <meta charset="UTF-8" />
+
       <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+
+        import mermaid
+        from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
 
         mermaid.initialize({
+
           startOnLoad: true,
-          theme: 'dark',
+
+          theme: 'base',
+
           flowchart: {
+
+            useMaxWidth: false,
+            htmlLabels: true,
             curve: 'basis'
+
+          },
+
+          themeVariables: {
+
+            background: '#020617',
+
+            primaryColor: '#0f172a',
+            primaryBorderColor: '#334155',
+            primaryTextColor: '#e2e8f0',
+
+            lineColor: '#475569',
+
+            fontFamily: 'Inter',
+            fontSize: '14px'
+
           }
+
         });
+
       </script>
 
       <style>
+
         * {
           margin: 0;
           padding: 0;
@@ -21,87 +52,387 @@
         }
 
         body {
-          background:
-            radial-gradient(circle at top left, #1e293b, #020617);
-          color: white;
-          font-family: Inter, sans-serif;
+
           min-height: 100vh;
-          padding: 40px;
-          overflow-x: auto;
+
+          background:
+            radial-gradient(
+              circle at top left,
+              #1e293b,
+              #020617
+            );
+
+          color: white;
+
+          font-family:
+            Inter,
+            system-ui,
+            sans-serif;
+
+          overflow: hidden;
+        }
+
+        .header {
+
+          padding:
+            40px
+            48px
+            24px;
         }
 
         h1 {
-          font-size: 64px;
-          margin-bottom: 40px;
-          font-weight: 800;
-          letter-spacing: -2px;
 
-          background: linear-gradient(
-            90deg,
-            #60a5fa,
-            #a78bfa
-          );
+          font-size: 72px;
+          font-weight: 800;
+
+          letter-spacing: -3px;
+
+          background:
+            linear-gradient(
+              90deg,
+              #60a5fa,
+              #818cf8
+            );
 
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
-        .container {
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.1);
-          border-radius: 24px;
-          padding: 40px;
-          backdrop-filter: blur(20px);
+        .subtitle {
+
+          margin-top: 10px;
+
+          color:
+            rgba(255,255,255,0.55);
+
+          font-size: 18px;
+        }
+
+        .graph-shell {
+
+          padding:
+            0
+            32px
+            32px;
+        }
+
+        .graph-container {
+
+          height:
+            calc(100vh - 180px);
+
           overflow: auto;
+
+          border-radius: 24px;
+
+          background:
+            rgba(255,255,255,0.04);
+
+          border:
+            1px solid
+            rgba(255,255,255,0.08);
+
+          backdrop-filter:
+            blur(20px);
+
+          padding: 32px;
         }
 
-        .mermaid {
-          display: flex;
-          justify-content: center;
-          min-width: 1200px;
+.mermaid {
+
+  min-width: 1600px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 120px;
+
+  font-size: 14px;
+}
+
+        svg {
+          max-width: none !important;
         }
 
-        ::-webkit-scrollbar {
-          height: 10px;
-          width: 10px;
+        .footer {
+
+          position: fixed;
+
+          bottom: 16px;
+          right: 24px;
+
+          color:
+            rgba(255,255,255,0.3);
+
+          font-size: 12px;
         }
 
-        ::-webkit-scrollbar-thumb {
-          background: rgba(255,255,255,0.2);
-          border-radius: 999px;
-        }
       </style>
+
     </head>
 
     <body>
-      <h1>MIRROR.dev</h1>
 
-      <div class="container">
-        <div class="mermaid">
-          graph LR
-Node0[__gitignore]
-Node1[_LICENSE]
-Node2[_README_md]
-Node3[_mirror_html]
-Node3 --> Import30
-Node4[_package_lock_json]
-Node5[_package_json]
-Node6[_src_cli_ts]
-Node6 --> Import60
-Node6 --> Import61
-Node6 --> Import62
-Node6 --> Import63
-Node7[_src_graph_ts]
-Node7 --> Import70
-Node8[_src_html_ts]
-Node8 --> Import80
-Node9[_src_scan_ts]
-Node9 --> Import90
-Node9 --> Import91
-Node10[_tsconfig_json]
+      <div class="header">
+
+        <h1>MIRROR.dev</h1>
+
+        <div class="subtitle">
+          Understand repositories instantly.
+        </div>
+
+      </div>
+
+      <div class="graph-shell">
+
+        <div class="graph-container">
+
+          <div class="mermaid">
+
+graph LR
+
+src["📁 src"]
+
+app["📁 app"]
+
+_components["📁 _components"]
+
+discussions["📁 discussions"]
+
+_discussionId_["📁 _discussionId_"]
+
+__tests__["📁 __tests__"]
+
+profile["📁 profile"]
+
+users["📁 users"]
+
+auth["📁 auth"]
+
+login["📁 login"]
+
+register["📁 register"]
+
+public["📁 public"]
+
+components["📁 components"]
+
+errors["📁 errors"]
+
+layouts["📁 layouts"]
+
+ui["📁 ui"]
+
+button["📁 button"]
+
+dialog["📁 dialog"]
+
+confirmation_dialog["📁 confirmation_dialog"]
+
+drawer["📁 drawer"]
+
+dropdown["📁 dropdown"]
+
+form["📁 form"]
+
+link["📁 link"]
+
+md_preview["📁 md_preview"]
+
+notifications["📁 notifications"]
+
+spinner["📁 spinner"]
+
+table["📁 table"]
+
+config["📁 config"]
+
+features["📁 features"]
+
+comments["📁 comments"]
+
+api["📁 api"]
+
+teams["📁 teams"]
+
+hooks["📁 hooks"]
+
+lib["📁 lib"]
+
+testing["📁 testing"]
+
+mocks["📁 mocks"]
+
+handlers["📁 handlers"]
+
+types["📁 types"]
+
+utils["📁 utils"]
+
+pages["📁 pages"]
+
+seo["📁 seo"]
+
+routes["📁 routes"]
+
+src --> app
+
+app --> _components
+
+app --> discussions
+
+discussions --> _discussionId_
+
+_discussionId_ --> __tests__
+
+_discussionId_ --> _components
+
+discussions --> __tests__
+
+discussions --> _components
+
+app --> profile
+
+profile --> _components
+
+app --> users
+
+users --> _components
+
+app --> auth
+
+auth --> _components
+
+auth --> login
+
+auth --> register
+
+app --> public
+
+public --> discussions
+
+src --> components
+
+components --> errors
+
+components --> layouts
+
+components --> ui
+
+ui --> button
+
+ui --> dialog
+
+dialog --> __tests__
+
+dialog --> confirmation_dialog
+
+confirmation_dialog --> __tests__
+
+ui --> drawer
+
+drawer --> __tests__
+
+ui --> dropdown
+
+ui --> form
+
+form --> __tests__
+
+ui --> link
+
+ui --> md_preview
+
+ui --> notifications
+
+notifications --> __tests__
+
+ui --> spinner
+
+ui --> table
+
+src --> config
+
+src --> features
+
+features --> auth
+
+auth --> components
+
+components --> __tests__
+
+features --> comments
+
+comments --> api
+
+comments --> components
+
+features --> discussions
+
+discussions --> api
+
+discussions --> components
+
+features --> teams
+
+teams --> api
+
+features --> users
+
+users --> api
+
+users --> components
+
+src --> hooks
+
+hooks --> __tests__
+
+src --> lib
+
+lib --> __tests__
+
+src --> testing
+
+testing --> mocks
+
+mocks --> handlers
+
+src --> types
+
+src --> utils
+
+app --> pages
+
+pages --> app
+
+pages --> auth
+
+components --> seo
+
+src --> pages
+
+pages --> public
+
+app --> routes
+
+routes --> app
+
+routes --> auth
+
+seo --> __tests__
+
+          </div>
 
         </div>
+
       </div>
+
+      <div class="footer">
+        Generated by MIRROR.dev
+      </div>
+
     </body>
+
   </html>
   
