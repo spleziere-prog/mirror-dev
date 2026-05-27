@@ -4,6 +4,8 @@ Understand any GitHub repository instantly.
 
 Generate beautiful architecture graphs automatically.
 
+<img width="1490" height="848" alt="Bildschirmfoto 2026-05-27 um 21 02 39" src="https://github.com/user-attachments/assets/eb6a0444-c6cd-4ef7-8a87-7e4ebfbda568" />
+
 ## Features
 
 - Repository visualization
